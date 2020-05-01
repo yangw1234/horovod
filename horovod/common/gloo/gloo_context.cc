@@ -110,7 +110,7 @@ void GlooContext::InitializeFromMPI(MPIContext& mpi_ctx,
 }
 #endif
 
-void GlooContext::Initialize(const std::string& gloo_iface) {
+void GlooContext::Initialize(const std::string& gloo_iface, const std::string& gloo_host) {
   if (!enabled_) {
     return;
   }
@@ -120,6 +120,7 @@ void GlooContext::Initialize(const std::string& gloo_iface) {
   //  https://github.com/facebookincubator/gloo/issues/190
   gloo::transport::tcp::attr attr;
   attr.iface = gloo_iface;
+  attr.hostname = gloo_host;
 
   attr.ai_family = AF_UNSPEC;
   auto dev = gloo::transport::tcp::CreateDevice(attr);

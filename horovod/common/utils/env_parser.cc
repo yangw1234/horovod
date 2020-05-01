@@ -116,6 +116,14 @@ const char* ParseGlooIface() {
   return gloo_iface;
 }
 
+const char* ParseGlooHost() {
+  const char* gloo_host = std::getenv(HOROVOD_GLOO_HOST);
+  if (gloo_host == nullptr) {
+    gloo_host = "localhost";
+  }
+  return gloo_host;
+}
+
 void ParseStallInspectorFromEnv(StallInspector& stall_inspector) {
   auto env_value = std::getenv(HOROVOD_STALL_CHECK_DISABLE);
   if (env_value != nullptr && std::strtol(env_value, nullptr, 10) > 0) {

@@ -33,6 +33,8 @@ LibType ParseControllerOpsFromEnv();
 
 const char* ParseGlooIface();
 
+const char* ParseGlooHost();
+
 void ParseStallInspectorFromEnv(StallInspector& stall_inspector);
 
 void SetBoolFromEnv(const char* env, bool& val, bool value_if_set);

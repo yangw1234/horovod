@@ -370,7 +370,9 @@ void BackgroundThreadLoop(HorovodGlobalState& state) {
     else
 #endif
     {
-      gloo_context.Initialize(ParseGlooIface());
+      auto iface = ParseGlooIface();
+      auto hostname = ParseGlooHost();
+      gloo_context.Initialize(iface, hostname);
     }
 #endif
 
