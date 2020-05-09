@@ -34,7 +34,7 @@ struct GlooContext {
   void InitializeFromMPI(MPIContext& mpi_ctx, const std::string& gloo_iface);
 #endif
 
-  void Initialize(const std::string& gloo_iface);
+  void Initialize(const std::string& gloo_iface, const std::string& gloo_host);
 
   void Finalize();
 

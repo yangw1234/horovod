@@ -149,10 +149,10 @@ def _alloc_info_to_command_fn(run_command, env):
         :return:
         """
         # generate env for rendezvous
-        horovod_rendez_env = 'HOROVOD_RANK={rank} HOROVOD_SIZE={size} ' \
+        horovod_rendez_env = 'HOROVOD_GLOO_HOST={host} HOROVOD_RANK={rank} HOROVOD_SIZE={size} ' \
                              'HOROVOD_LOCAL_RANK={local_rank} HOROVOD_LOCAL_SIZE={local_size} ' \
                              'HOROVOD_CROSS_RANK={cross_rank} HOROVOD_CROSS_SIZE={cross_size} ' \
-            .format(rank=alloc_info.rank, size=alloc_info.size,
+            .format(host=alloc_info.hostname, rank=alloc_info.rank, size=alloc_info.size,
                     local_rank=alloc_info.local_rank, local_size=alloc_info.local_size,
                     cross_rank=alloc_info.cross_rank, cross_size=alloc_info.cross_size)
 
